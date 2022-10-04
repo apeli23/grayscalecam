@@ -230,12 +230,6 @@ export default function Home() {
               <button className="button" onClick={stopCamHandler} ref={closeBtn}>
                 Close and upload original video
               </button><br />
-              <h3>STEP 3 <span>(optional)</span></h3> 
-              <button className="button">
-                <a ref={videoDownloadRef} href={videoUrl}>
-                  Get Original video
-                </a>
-              </button>
             </div>
           </>
         )}
