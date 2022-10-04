@@ -111,6 +111,7 @@ export default function Home() {
 
   const uploadVideo = async (base64) => {
     console.log("uploading to backend...");
+
     try {
       fetch("/api/upload", {
         method: "POST",
@@ -193,44 +194,53 @@ export default function Home() {
   };
 
   return (
-    <div className="container">
-      {model && (
-        <>
-          <div className="card">
-            <div className="videos">
-              <video
-                className="display"
-                width={800}
-                height={450}
-                ref={rawVideo}
-                autoPlay
-                playsInline
-              ></video>
-            </div>
+    <>
+      <h2 style={{ textAlign: 'center' }}>CREATE GRAYSCALE WEBCAM WITH NEXTJS </h2>
 
-            <canvas
-              className="display"
-              width={800}
-              height={450}
-              ref={processedVid}
-            ></canvas>
-          </div>
-          <div className="buttons">
-            <button className="button" onClick={startCamHandler} ref={startBtn}>
-              Start Webcam
-            </button>
-            <button className="button" onClick={stopCamHandler} ref={closeBtn}>
-              Close and upload original video
-            </button>
-            <button className="button">
-              <a ref={videoDownloadRef} href={videoUrl}>
-                Get Original video
-              </a>
-            </button>
-          </div>
-        </>
-      )}
-      {!model && <div>Loading machine learning models...</div>}
-    </div>
+      <div className="container">
+        {model && (
+          <>
+            <div className="card">
+              <div>
+                <video
+                  className="display"
+                  width={800}
+                  height={450}
+                  ref={rawVideo}
+                  autoPlay
+                  playsInline
+                ></video>
+              </div>
+
+              <div>
+                <canvas
+                  className="display"
+                  width={800}
+                  height={450}
+                  ref={processedVid}
+                />
+              </div>
+            </div>
+            <div className="buttons">
+              <h3>STEP 1</h3>
+              <button className="button" onClick={startCamHandler} ref={startBtn}>
+                Start Webcam
+              </button><br />
+              <h3>STEP 2</h3>
+              <button className="button" onClick={stopCamHandler} ref={closeBtn}>
+                Close and upload original video
+              </button><br />
+              <h3>STEP 3 <span>(optional)</span></h3> 
+              <button className="button">
+                <a ref={videoDownloadRef} href={videoUrl}>
+                  Get Original video
+                </a>
+              </button>
+            </div>
+          </>
+        )}
+        {!model && <div>Loading machine learning models...</div>}
+      </div>
+    </>
   );
 }

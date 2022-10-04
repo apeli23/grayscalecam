@@ -23,15 +23,19 @@ a {
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
+  text-align: center;
   width: 100%;
   padding: 70px 0;
   justify-content: center;
 }
 
 .card {
+  width: 90%;
+  text-align: center;
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
 
 }
 
@@ -39,7 +43,7 @@ a {
   margin-top: 3%;
   justify-content: space-between;
   width: 1000px;
-  display: flex;
+  display: block;
 }
 
 .display {
@@ -74,3 +78,5 @@ canvas {
   height: 25vw;
   margin: 2rem;
 }
+
+ 
